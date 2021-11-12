@@ -30,6 +30,7 @@ lines(time,MSUVector,type="l", col="dark green")
 # Computer generates a random number between 1 and 100. 
 RandomNumber<-sample(1:100,1)
 #Guessing game
+#Run with GuessingGame()
 GuessingGame<-function(){
   PlayerGuess<-readline(prompt="I'm thinking of a number between 1 and 100. Take a guess? " )
   RemainingGuesses <- 9
