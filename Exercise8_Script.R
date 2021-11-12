@@ -26,4 +26,29 @@ for(i in 1:nrow(GameData)){
 plot(time,UWVector,type="l",col="red",xlab = "Time(Min)",ylab = "Score", main = "UW vs MSU")
 lines(time,MSUVector,type="l", col="dark green")
 
-#2
+#2. Guess my number game. 
+# Computer generates a random number between 1 and 100. 
+RandomNumber<-sample(1:100,1)
+#Guessing game
+GuessingGame<-function(){
+  PlayerGuess<-readline(prompt="I'm thinking of a number between 1 and 100. Take a guess? " )
+  RemainingGuesses <- 9
+  while(RemainingGuesses>0){  
+    if(PlayerGuess<RandomNumber){
+      cat(paste("Sorry, that's incorrect. Guesses left: ", RemainingGuesses))
+      PlayerGuess<-readline(prompt="Try a higher number! ")
+      RemainingGuesses<-RemainingGuesses-1
+    }else{
+      if(PlayerGuess>RandomNumber){
+        cat(paste("Sorry, that's incorrect. Guesses left: ", RemainingGuesses))
+        PlayerGuess<-readline(prompt="Try a lower number! ")
+        RemainingGuesses<-RemainingGuesses-1
+      }else{
+        cat("Congratulations, you've guessed correctly!")
+        if(PlayerGuess==RandomNumber){
+          break
+        }
+      }
+    }
+  }
+}
